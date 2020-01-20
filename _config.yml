@@ -18,12 +18,12 @@ avatar: https://avatars0.githubusercontent.com/u/3589877?s=460&v=4
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
+  email: mail@mattspaulding.org
   facebook:
   flickr:
   github: mattspaulding
   instagram:
-  linkedin:
+  linkedin: https://www.linkedin.com/in/spauldingmatthew/
   pinterest:
   rss: # just type anything here for a working RSS icon
   twitter: blrbr
@@ -41,7 +41,7 @@ google_analytics:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url:
+url: https://www.mattspaulding.org
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
