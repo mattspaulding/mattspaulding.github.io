@@ -10,9 +10,9 @@ software applications from conception to completion. Mentors and peer reviews ju
 developers. Active member of the development community, contributing to open
 source on GitHub with a Stack Overflow reputation of over 21,000.
 
-## Featured professional projects
+--------------
 
-A few examples of past projects
+## Featured professional projects
 
 ### Claires Mobile Website
 
@@ -27,7 +27,9 @@ A few examples of past projects
 
 ## Personal projects
 
-Some of my favorite personal projects
+### GIVVN - donation intelligence
+
+![givvn]({{ site.baseurl }}/images/about/givvn.png)
 
 ### blrbr - social audio
 
@@ -53,11 +55,15 @@ Some of my favorite personal projects
 
 ![agile-doc]({{ site.baseurl }}/images/about/agile-doc.jpg)
 
+--------------
+
 ## Education
 
 ### University of South Florida - MS in Computer Engineering
 
 ![usf-bulls]({{ site.baseurl }}/images/about/usf-bulls.jpg)
+
+--------------
 
 ## Publications
 
@@ -69,6 +75,14 @@ At the Google I/O Conference back in 2014, Google announced Material Design, the
 
 ![angular-material]({{ site.baseurl }}/images/about/angular-material.jpeg)
 
+### ASP.NET MVC 4 Web API with Code First Migrations [(link)](https://youtu.be/K7zBDHYmBA4)
+
+#### Summary
+
+A non-comprehensive overview of ASP.NET MVC 4. Follow along as we touch on important features needed to get a project up and running in two hours.
+
+[![Audi R8](http://img.youtube.com/vi/K7zBDHYmBA4/0.jpg)](https://youtu.be/K7zBDHYmBA4 "ASP.NET MVC 4 Web API with Code First Migrations")
+
 ### A Dynamic Hierarchical Web-based Portal [(link)](https://scholarcommons.usf.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=4554&context=etd)
 
 #### Summary
@@ -77,13 +91,7 @@ A dynamic hierarchical web-based portal was created to house a suite of webbased
 
 ![thesis]({{ site.baseurl }}/images/about/thesis.png)
 
-### ASP.NET MVC 4 Web API with Code First Migrations [(link)](https://youtu.be/K7zBDHYmBA4)
-
-#### Summary
-
-A non-comprehensive overview of ASP.NET MVC 4. Follow along as we touch on important features needed to get a project up and running in two hours.
-
-[![Audi R8](http://img.youtube.com/vi/K7zBDHYmBA4/0.jpg)](https://youtu.be/K7zBDHYmBA4 "ASP.NET MVC 4 Web API with Code First Migrations")
+--------------
 
 ## Contact me
 
