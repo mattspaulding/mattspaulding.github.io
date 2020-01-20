@@ -61,6 +61,14 @@ Some of my favorite personal projects
 
 ## Publications
 
+### Build Ultra-Modern Web Apps with Angular Material [(link)](https://www.toptal.com/angular-js/ultra-modern-web-apps-angular-material)
+
+#### Summary
+
+At the Google I/O Conference back in 2014, Google announced Material Design, their new design language. They have since converted much of their popular applications to adhere to this new spec in an effort to provide a consistent experience. Now they are trying to convince you to follow along as well.
+
+![angular-material]({{ site.baseurl }}/images/about/angular-material.jpeg)
+
 ### A Dynamic Hierarchical Web-based Portal [(link)](https://scholarcommons.usf.edu/cgi/viewcontent.cgi?referer=&httpsredir=1&article=4554&context=etd)
 
 #### Summary
@@ -79,4 +87,10 @@ A non-comprehensive overview of ASP.NET MVC 4. Follow along as we touch on impor
 
 ## Contact me
 
-[mail@mattspaulding.org](mailto:mail@mattspaulding.org)
+email: [mail@mattspaulding.org](mailto:mail@mattspaulding.org)
+
+GitHub: [https://github.com/mattspaulding](https://github.com/mattspaulding)
+
+Stack Overflow: [http://stackoverflow.com/users/902630/matt](http://stackoverflow.com/users/902630/matt)
+
+LinkedIn: [https://www.linkedin.com/in/spauldingmatthew](https://www.linkedin.com/in/spauldingmatthew)
