@@ -4,6 +4,7 @@ title: Build Ultra-Modern Web Apps with Angular Material
 image: /images/angular-material.jpeg
 excerpt: At the Google I/O Conference back in 2014, Google announced Material Design, their new design language. They have since converted much of their popular applications to adhere to this new spec in an effort to provide a consistent experience. Now they are trying to convince you to follow along as well.
 ---
+
 ![angular-material]({{ site.baseurl }}/images/angular-material.jpeg)
 
 At the Google I/O Conference back in 2014, Google announced Material Design, their new design language. They have since converted much of their popular applications to adhere to this new spec in an effort to provide a consistent experience. Now they are trying to convince you to follow along as well.

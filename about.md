@@ -75,4 +75,6 @@ Stack Overflow: [http://stackoverflow.com/users/902630/matt](http://stackoverflo
 
 LinkedIn: [https://www.linkedin.com/in/spauldingmatthew](https://www.linkedin.com/in/spauldingmatthew)
 
+Download Resume: [https://www.mattspaulding.org/resume.pdf](https://www.mattspaulding.org/resume.pdf)
+
 <a href="https://stackoverflow.com/users/902630/matt"><img src="https://stackoverflow.com/users/flair/902630.png" width="208" height="58" alt="profile for Matt at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Matt at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
