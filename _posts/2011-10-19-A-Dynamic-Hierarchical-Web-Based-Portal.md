@@ -2,7 +2,7 @@
 layout: post
 title: A Dynamic Hierarchical Web-based Portal
 image: /images/thesis.png
-excerpt: A dynamic hierarchical web-based portal was created to house a suite of webbased supply chain management applications. The portal was designed in a hierarchical manner to match the structure of large companies.
+excerpt: A dynamic hierarchical web-based portal was created to house a suite of web-based supply chain management applications. The portal was designed in a hierarchical manner to match the structure of large companies.
 ---
 
 ![angular-material]({{ site.baseurl }}/images/thesis.png)
