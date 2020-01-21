@@ -82,4 +82,53 @@ That is not what is going on here.
 
 This is a dotnet core project with an angular project living inside it. It is configured in such a way that we only need to press the `play` button and everything just gets going. Furthermore, maintenance, versioning, and deployment are a single project experience. I'll show you later how we can build the project and publish really easily to Azure. 
 
-There are some scenarios where having the server and client seperated would be desired, but the one-project structure should work just fine in most cases.
+Note: There are some scenarios where having the server and client seperated would be desired, but the one-project structure should work just fine in most cases.
+
+## Publishing
+
+Now that our project is working, let publish it.
+
+### Prerequisites
+
+* An Azure subscription
+  * You can start a free subscription if you do not already have one
+  * [https://azure.microsoft.com](https://azure.microsoft.com)
+* Azure App Service - extention for vscode
+  * [azuretools.vscode-azureappservice](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
+
+### Generate the deployment package
+
+Create a `Release` package and put it in the `publish` directory
+
+```sh
+dotnet publish -c Release -o ./publish
+```
+
+You will notice the new `publish` directory.
+
+![publish]({{site.baseurl}}/images/publish.png)
+
+This contains your project optimized for production. Look closely and you will see that your angular project has also been built with this nice simple command.
+
+![publish-angular]({{site.baseurl}}/images/publish-angular.png)
+
+### Send it to Azure
+
+1. Right click the `publish` folder and select `Deploy to Web App...`
+
+    ![deploy-web-app]({{site.baseurl}}/images/deploy-web-app.png)
+
+1. Select the subscription you want to create the Web App
+
+1. Select `Create new Web App`
+
+    ![new-web-app]({{site.baseurl}}/images/new-web-app.png)
+
+1. Enter a name for the Web App
+
+And that's it. Your project is now live in production.
+
+This is my live URL: [https://hacker-news-dotnet-angular.azurewebsites.net](https://hacker-news-dotnet-angular.azurewebsites.net)
+
+## Conclusion
+
