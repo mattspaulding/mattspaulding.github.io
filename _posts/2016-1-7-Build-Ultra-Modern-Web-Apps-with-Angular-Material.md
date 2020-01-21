@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Build Ultra-Modern Web Apps with Angular Material
-image: /images/about/angular-material.jpeg
+image: /images/angular-material.jpeg
 excerpt: At the Google I/O Conference back in 2014, Google announced Material Design, their new design language. They have since converted much of their popular applications to adhere to this new spec in an effort to provide a consistent experience. Now they are trying to convince you to follow along as well.
 ---
-![angular-material]({{ site.baseurl }}/images/about/angular-material.jpeg)
+![angular-material]({{ site.baseurl }}/images/angular-material.jpeg)
 
 At the Google I/O Conference back in 2014, Google announced Material Design, their new design language. They have since converted much of their popular applications to adhere to this new spec in an effort to provide a consistent experience. Now they are trying to convince you to follow along as well.
 
@@ -36,7 +36,7 @@ Motion is meaningful and appropriate, serving to focus attention and maintain co
 
 AngularJS, Google’s “Superheroic JavaScript MVW Framework”, addresses many of the challenges encountered in developing single-page applications (SPA). It provides the framework needed for creating modern web applications that connect to APIs and never need the page to be refreshed.
 
-## AngularJS: A New Approach
+### AngularJS: A New Approach
 
 Angular is what HTML would have been, had it been designed for applications. HTML is a great declarative language for static documents, but creating dynamic applications not so much.
 
