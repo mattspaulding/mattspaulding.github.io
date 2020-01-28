@@ -142,14 +142,34 @@ The repository simply makes HTTP requests for this data.
 ```js
 // HackerNewsRepository.cs
 
-public async Task<HttpResponseMessage> BestStoriesAsync()
-{
-    return await client.GetAsync("https://hacker-news.firebaseio.com/v0/beststories.json");
-}
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Net.Http;
+using hacker_news_dotnet_angular.Core.Interfaces;
 
-public async Task<HttpResponseMessage> GetStoryByIdAsync(int id)
+namespace hacker_news_dotnet_angular.Infrastructure
 {
-    return await client.GetAsync(string.Format("https://hacker-news.firebaseio.com/v0/item/{0}.json", id));
+    public class HackerNewsRepository : IHackerNewsRepository
+    {
+
+        private static HttpClient client = new HttpClient();
+
+        public HackerNewsRepository()
+        {
+
+        }
+
+        public async Task<HttpResponseMessage> BestStoriesAsync()
+        {
+            return await client.GetAsync("https://hacker-news.firebaseio.com/v0/beststories.json");
+        }
+
+        public async Task<HttpResponseMessage> GetStoryByIdAsync(int id)
+        {
+            return await client.GetAsync(string.Format("https://hacker-news.firebaseio.com/v0/item/{0}.json", id));
+        }
+    }
 }
 ```
 
@@ -159,59 +179,82 @@ The controller is the entry point for the API and constructs the data retrieved 
 
 First get the best stories from the repository. And optionaly filter by a search term.
 
-``` js
-// HackerNewsController.cs
-
-public async Task<List<HackerNewsStory>> Index(string searchTerm)
-{
-    List<HackerNewsStory> stories = new List<HackerNewsStory>();
-
-    var response = await _repo.BestStoriesAsync();
-    if (response.IsSuccessStatusCode)
-    {
-        var storiesResponse = response.Content.ReadAsStringAsync().Result;
-        var bestIds = JsonConvert.DeserializeObject<List<int>>(storiesResponse);
-
-        var tasks = bestIds.Select(GetStoryAsync);
-        stories = (await Task.WhenAll(tasks)).ToList();
-
-        if (!String.IsNullOrEmpty(searchTerm))
-        {
-            var search = searchTerm.ToLower();
-            stories = stories.Where(s =>
-                s.Title.ToLower().IndexOf(search) > -1 || s.By.ToLower().IndexOf(search) > -1)
-                .ToList();
-        }
-    }
-    return stories;
-}
-```
-
 Once we have the list of best story IDs, we asyncronously call `GetStoryAsync` for each ID to get the details.
 
-```js
+``` cs
 // HackerNewsController.cs
 
-private async Task<HackerNewsStory> GetStoryAsync(int storyId)
-{
-    return await _cache.GetOrCreateAsync<HackerNewsStory>(storyId,
-        async cacheEntry =>
-        {
-            HackerNewsStory story = new HackerNewsStory();
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Microsoft.Extensions.Caching.Memory;
+using hacker_news_dotnet_angular.Core.Interfaces;
 
-            var response = await _repo.GetStoryByIdAsync(storyId);
+namespace hacker_news_dotnet_angular.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class HackerNewsController : ControllerBase
+    {
+        private IMemoryCache _cache;
+
+        private readonly IHackerNewsRepository _repo;
+
+        public HackerNewsController(IMemoryCache cache, IHackerNewsRepository repository)
+        {
+            this._cache = cache;
+            this._repo = repository;
+        }
+
+        public async Task<List<HackerNewsStory>> Index(string searchTerm)
+        {
+            List<HackerNewsStory> stories = new List<HackerNewsStory>();
+
+            var response = await _repo.BestStoriesAsync();
             if (response.IsSuccessStatusCode)
             {
-                var storyResponse = response.Content.ReadAsStringAsync().Result;
-                story = JsonConvert.DeserializeObject<HackerNewsStory>(storyResponse);
-            }
+                var storiesResponse = response.Content.ReadAsStringAsync().Result;
+                var bestIds = JsonConvert.DeserializeObject<List<int>>(storiesResponse);
 
-            return story;
-        });
+                var tasks = bestIds.Select(GetStoryAsync);
+                stories = (await Task.WhenAll(tasks)).ToList();
+
+                if (!String.IsNullOrEmpty(searchTerm))
+                {
+                    var search = searchTerm.ToLower();
+                    stories = stories.Where(s =>
+                                       s.Title.ToLower().IndexOf(search) > -1 || s.By.ToLower().IndexOf(search) > -1)
+                                       .ToList();
+                }
+            }
+            return stories;
+        }
+
+        private async Task<HackerNewsStory> GetStoryAsync(int storyId)
+        {
+            return await _cache.GetOrCreateAsync<HackerNewsStory>(storyId,
+                async cacheEntry =>
+                {
+                    HackerNewsStory story = new HackerNewsStory();
+
+                    var response = await _repo.GetStoryByIdAsync(storyId);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var storyResponse = response.Content.ReadAsStringAsync().Result;
+                        story = JsonConvert.DeserializeObject<HackerNewsStory>(storyResponse);
+                    }
+
+                    return story;
+                });
+        }
+    }
 }
 ```
 
-What is interesting here is the `_cache.GetOrCreateAsync` function. Since the Hacker News API isn't efficient, we cache all of the stories. For each subsequent request for a story, the user will recieve the cached version.
+One interesting point here is the `_cache.GetOrCreateAsync` function. Since the Hacker News API isn't efficient, we cache all of the stories. For each subsequent request for a story, the user will recieve the cached version.
 
 ### The Angular Code
 
@@ -334,4 +377,3 @@ And that's it. Your project is now live in production.
 
 This is my live URL: [https://hacker-news-dotnet-angular.azurewebsites.net](https://hacker-news-dotnet-angular.azurewebsites.net)
 
-## Conclusion
