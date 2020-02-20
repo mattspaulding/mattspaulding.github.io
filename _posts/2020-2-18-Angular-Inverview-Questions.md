@@ -421,6 +421,7 @@ This is why I made this list of 20 things you should not only know about Angular
 
     The AsyncPipe subscribes to an observable or promise and returns the latest value it has emitted. When a new value is emitted, the pipe marks the component to be checked for changes.
     Let's take a time observable which continuously updates the view for every 2 seconds with the current time.
+
     ```typescript
     @Component({
       selector: 'async-observable-pipe',
@@ -434,4 +435,45 @@ This is why I made this list of 20 things you should not only know about Angular
     }
     ```
 
+1. ### What are different types of compilation in Angular?
+
+    Angular offers two ways to compile your application,
+
+    1. Just-in-Time (JIT)
+    2. Ahead-of-Time (AOT)
+
+1. ### What is JIT?
+
+    Just-in-Time (JIT) is a type of compilation that compiles your app in the browser at runtime. JIT compilation is the default when you run the ng build (build only) or ng serve (build and serve locally) CLI commands. i.e, the below commands used for JIT compilation,
+
+    ```javascript
+    ng build
+    ng serve
+    ```
+
+1. ### What is AOT?
+
+    Ahead-of-Time (AOT) is a type of compilation that compiles your app at build time. For AOT compilation, include the `--aot` option with the ng build or ng serve command as below,
+
+    ```javascript
+    ng build --aot
+    ng serve --aot
+    ```
+
+    **Note:** The ng build command with the --prod meta-flag (`ng build --prod`) compiles with AOT by default.
+
+1. ### Why do we need compilation process?
+
+    The Angular components and templates cannot be understood by the browser directly. Due to that Angular applications require a compilation process before they can run in a browser. For example, In AOT compilation, both Angular HTML and TypeScript code converted into efficient JavaScript code during the build phase before browser runs it.
+
+1. ### What are the advantages with AOT?
+
+    Below are the list of AOT benefits,
+    1. **Faster rendering:** The browser downloads a pre-compiled version of the application. So it can render the application immediately without compiling the app.
+    2. **Fewer asynchronous requests:** It inlines external HTML templates and CSS style sheets within the application javascript which eliminates separate ajax requests.
+    3. **Smaller Angular framework download size:** Doesn't require downloading the Angular compiler. Hence it dramatically reduces the application payload.
+    4. **Detect template errors earlier:** Detects and reports template binding errors during the build step itself
+    5. **Better security:** It compiles HTML templates and components into JavaScript.  So there won't be any injection attacks.
+
+    
 {% endraw %}
