@@ -2,32 +2,20 @@
 layout: post
 title: The Curious Case of Angular and the Infinite Change Event Loop
 image: /images/dotnet-core-angular.jpg
-excerpt: The Angular change detection is a mystical wonder. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
+excerpt: Angular change detection is a mystical wonder. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
 ---
 
 ![dotnet-core-angular]({{ site.baseurl }}/images/dotnet-core-angular.jpg)
 
-The Angular change detection is a mystical wonder. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
+Angular change detection is a mystical wonder. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
 
 I encourage you to follow along...
 
-> See the final project in the [repository](https://github.com/mattspaulding/hacker-news-dotnet-angular)
+> See the final project in the [repository](https://github.com/mattspaulding/angular-infinite-event-loop)
 
 ## Built with
 
 - Angular v9.1
-
-## About the Hacker News API
-
-Before we get started, you should know that the Hacker News API is not great. Its a bit clunky to say the least. But don't take it from me. This is what the developers have to say about it from the official docs.
-
-> The v0 API is essentially a dump of our in-memory data structures. We know, what works great locally in memory isn't so hot over the network. Many of the awkward things are just the way HN works internally. Want to know the total number of comments on an article? Traverse the tree and count. Want to know the children of an item? Load the item and get their IDs, then load them. The newest page? Starts at item maxid and walks backward, keeping only the top level stories. Same for Ask, Show, etc.
-
-> I'm not saying this to defend it - It's not the ideal public API, but it's the one we could release in the time we had. While awkward, it's possible to implement most of HN using it.
-
-While awkward, it is doable. And creates some unique coding situations to overcome.
-
-Let's get started, shall we?
 
 ## Getting Started
 
