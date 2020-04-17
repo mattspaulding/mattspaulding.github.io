@@ -85,14 +85,14 @@ All started up? Great! Now let's put some of our code in.
    ng generate component hello
    ```
 
-1. In `src/app/hello.component.html`
+1. In `src/app/hello/hello.component.html`
 
    ```html
    <p *ngIf="!isLoggedIn()">Are you there?</p>
    <h1 *ngIf="isLoggedIn()">Hello {{user?.first}}!</h1>
    ```
 
-1. In `src/app/hello.component.ts`
+1. In `src/app/hello/hello.component.ts`
 
    ```ts
    import { Component, Input, AfterViewChecked } from "@angular/core";
@@ -157,7 +157,7 @@ This is how it should look. Clicking the login button calls the login method whi
 
 Now, let's say we want to do something 1 second after the hello component checks for login.
 
-1. In `src/hello/hello.component.ts`
+1. In `src/app/hello/hello.component.ts`
 
 ```ts
 import { Component, Input, AfterViewChecked } from "@angular/core";
@@ -203,7 +203,7 @@ Calling `setTimeout` causes a change event to fire. The change event cause the `
 
 #### NgZone
 
-1. In `src/hello/hello.component.ts`
+1. In `src/app/hello/hello.component.ts`
 
 ```ts
 import { Component, Input, AfterViewChecked, NgZone } from "@angular/core";
@@ -240,7 +240,7 @@ We wrapped our `setTimeout` with `NgZone.runOutsideAngular`. This tells Angular 
 
 #### OnPush
 
-1. In `src/hello/hello.component.ts`
+1. In `src/app/hello/hello.component.ts`
 
 ```ts
 import {
@@ -324,7 +324,7 @@ But look carefully and you will notice that 1 second after the the login button 
 
 In conclusion, which is best for solving the infinite event loop, 1) NgZone or 2) OnPush? Plot twist! I choose 3) All of the above.
 
-1. In `src/hello/hello.component.ts`
+1. In `src/app/hello/hello.component.ts`
 
 ```ts
 import {
