@@ -1,11 +1,11 @@
 ---
 layout: post
 title: The Curious Case of Angular and the Infinite Change Event Loop
-image: /images/dotnet-core-angular.jpg
+image: /images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/angular-infinite-event-loop.png
 excerpt: Angular change detection is a mystical wonder. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
 ---
 
-![dotnet-core-angular]({{ site.baseurl }}/images/dotnet-core-angular.jpg)
+![dotnet-core-angular]({{ site.baseurl }}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/angular-infinite-event-loop.png)
 
 Angular change detection is a mystical wonder. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
 
