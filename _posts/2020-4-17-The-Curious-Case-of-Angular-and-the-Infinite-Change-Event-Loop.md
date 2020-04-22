@@ -2,12 +2,12 @@
 layout: post
 title: The Curious Case of Angular and the Infinite Change Event Loop
 image: /images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/angular-infinite-event-loop.png
-excerpt: Angular change detection is a mystical wonder. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
+excerpt: Angular change detection is a mystical wonder; akin to the Great Pyramid of Giza. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
 ---
 
-![dotnet-core-angular]({{ site.baseurl }}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/angular-infinite-event-loop.png)
+![angular-infinite-event-loop]({{ site.baseurl }}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/angular-infinite-event-loop.png)
 
-Angular change detection is a mystical wonder. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
+Angular change detection is a mystical wonder; akin to the Great Pyramid of Giza. This is the behind-the-curtain magic that makes Angular "just work". Today we pull back the curtain on Angular change events and discover when they don't "just work" (and how to fix them).
 
 I encourage you to follow along...
 
@@ -15,7 +15,7 @@ I encourage you to follow along...
 
 ## Built with
 
-- Angular v9.1
+- Angular v9.1.1
 
 ## Getting Started
 
