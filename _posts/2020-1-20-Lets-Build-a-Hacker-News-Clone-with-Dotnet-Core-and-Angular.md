@@ -1,5 +1,9 @@
 ---
 layout: post
+author: Matt Spaulding
+section: Technology
+published_time: 2020-01-20
+modified_time: 2020-01-20
 title: Let's Build a Hacker News Clone with Dotnet Core and Angular
 image: /images/dotnet-core-angular.jpg
 excerpt: YCombinator's infamous "Hacker News" has been a reliable source of news for the hacker community and, over time, has garnered the attention of hipsters and hustlers. Today we are building an app that displays the best stories from Hacker News.

@@ -1,5 +1,9 @@
 ---
 layout: post
+author: Matt Spaulding
+section: Technology
+published_time: 2016-01-07
+modified_time: 2016-01-07
 title: Build Ultra-Modern Web Apps with Angular Material
 image: /images/angular-material.jpeg
 excerpt: At the Google I/O Conference back in 2014, Google announced Material Design, their new design language. They have since converted much of their popular applications to adhere to this new spec in an effort to provide a consistent experience. Now they are trying to convince you to follow along as well.

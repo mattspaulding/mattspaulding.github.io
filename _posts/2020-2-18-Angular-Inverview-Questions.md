@@ -1,5 +1,9 @@
 ---
 layout: post
+author: Matt Spaulding
+section: Technology
+published_time: 2020-02-18
+modified_time: 2020-02-18
 title: Top 20 Angular 9 Interview Questions
 image: /images/angular.jpg
 excerpt: Got an Angular 9 inverview coming up? You should be able to answer these 20 questions.
