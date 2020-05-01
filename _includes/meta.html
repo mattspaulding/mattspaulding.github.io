@@ -17,6 +17,11 @@
     <meta property="twitter:title" content="{{ page.title }}" />
     {% endif %}
     
+    {% if page.image %}
+    <meta property="og:image" content="{{site.baseurl}}{{ page.image }}" />
+    <meta property="twitter:title" content="{{ page.title }}" />
+    {% endif %}
+    
     {% if page.author %}
     <meta property="og:type" content="article" />
     <meta property="og:article:author" content="{{ page.author }}" />
