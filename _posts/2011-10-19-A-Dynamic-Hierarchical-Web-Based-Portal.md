@@ -1,5 +1,6 @@
 ---
 layout: post
+author: Matt Spaulding
 title: A Dynamic Hierarchical Web-based Portal
 image: /images/thesis.png
 excerpt: A dynamic hierarchical web-based portal was created to house a suite of web-based supply chain management applications. The portal was designed in a hierarchical manner to match the structure of large companies.
