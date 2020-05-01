@@ -45,12 +45,10 @@
           },
           "headline": "{{ page.title }}",
           "image": [
-            "https://example.com/photos/1x1/photo.jpg",
-            "https://example.com/photos/4x3/photo.jpg",
-            "https://example.com/photos/16x9/photo.jpg"
+            "{{ site.baseurl }}{{ page.image }}"
            ],
-          "datePublished": "2015-02-05T08:00:00+08:00",
-          "dateModified": "2015-02-05T09:20:00+08:00",
+          "datePublished": "{{ page.published_time }}",
+          "dateModified": "{{ page.modified_time }}",
           "author": {
             "@type": "Person",
             "name": "Matt Spaulding"
@@ -63,6 +61,6 @@
               "url": "https://www.mattspaulding.org/images/about/matt-spaulding-logo.png"
             }
           },
-          "description": "A most wonderful article"
+          "description": "{{ page.excerpt }}"
         }
         </script>
