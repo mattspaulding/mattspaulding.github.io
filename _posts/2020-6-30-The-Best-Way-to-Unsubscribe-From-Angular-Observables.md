@@ -148,7 +148,9 @@ All started up? Great! Now let's put some of our code in.
 
 ![count-no-unsubscribe]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/count-no-unsubscribe.gif)
 
-This is how it should look. Clicking the login button calls the login method which changes the user's name. The `user` object is passed into the `hello` component. The component checks for a first name and displays if one exists. In the hello component we log every time the `ngAfterViewChecked` Angular lifecycle hook is invoked.
+Clicking the `count` button starts the timer and shows the count. Click `stop` and it stops. Click `count` again and we get a fresh timer starting at zero.
+
+But wait, what is happening in the console?...
 
 ### The Memory Leak
 
