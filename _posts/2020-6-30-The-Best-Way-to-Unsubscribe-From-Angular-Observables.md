@@ -9,17 +9,15 @@ image: /images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables.pn
 excerpt: The inclusion of RxJS Observable in Angular core is one of the most important additions in Angular's history. It is also one of the most misused. When used improperly, the Observable can open up memory leaks making your application sluggish or causing it to crash. Today we will talk about how to properly clean up observables and the very best way to do it.
 ---
 
-![angular-infinite-event-loop]({{ site.baseurl }}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/angular-infinite-event-loop.png)
+![angular-infinite-event-loop]({{ site.baseurl }}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/angular-infinite-event-loop.png)
 
 The inclusion of RxJS Observable in Angular core is one of the most important additions in Angular's history. It is also one of the most misused. When used improperly, the Observable can open up memory leaks making your application sluggish or causing it to crash. Today we will talk about how to properly clean up observables and the very best way to do it.
 
 I encourage you to follow along...
 
-> See the final project in the [repository](https://github.com/mattspaulding/angular-infinite-event-loop)
-
 ## Built with
 
-- Angular v9.1.1
+- Angular v10.0.0
 
 ## Getting Started
 
@@ -71,7 +69,7 @@ Get the newest LTS node => [https://nodejs.org](https://nodejs.org)
 
    > http://localhost:4200
 
-   ![initial-start]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/initial-start.png)
+   ![initial-start]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/initial-start.png)
 
 ## The Code
 
@@ -148,11 +146,15 @@ All started up? Great! Now let's put some of our code in.
    npm start
    ```
 
-![default-fine]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/default-fine.gif)
+![count-no-unsubscribe]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/count-no-unsubscribe.gif)
 
 This is how it should look. Clicking the login button calls the login method which changes the user's name. The `user` object is passed into the `hello` component. The component checks for a first name and displays if one exists. In the hello component we log every time the `ngAfterViewChecked` Angular lifecycle hook is invoked.
 
 ### The Memory Leak
+
+Woopsie! We have just entered an endless event loop and my Macbook Pro gave me third-degree burns on my thighs.
+
+![its-fine]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/its-fine.gif)
 
 ### Good
 
@@ -187,22 +189,13 @@ export class CountComponent implements OnInit, OnDestroy {
 }
 ```
 
-![default-oops]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/default-oops.gif)
-
-Woopsie! We have just entered an endless event loop and my Macbook Pro gave me third-degree burns on my thighs.
-
-![computer-fire](https://media.giphy.com/g79am6uuZJKSc.gif)
+![count-good]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/count-good.gif)
 
 ### Better
 
 _So what happened?_
 
 Calling `setTimeout` causes a change event to fire. The change event cause the `isLoggedIn()` method to run. Which causes another `setTimeout` and so on and so on. This is the default change detection strategy. To make Angular "just work" it checks for changes on several things. There are a couple things we can do to fix this. And make our application more efficient too.
-
-1. NgZone
-2. OnPush
-
-#### NgZone
 
 1. In `src/app/count/count.component.ts`
 
@@ -237,11 +230,7 @@ export class CountComponent implements OnInit, OnDestroy {
 }
 ```
 
-![default-ngzone]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/default-ngzone.gif)
-
-We wrapped our `setTimeout` with `NgZone.runOutsideAngular`. This tells Angular to not fire a change event for this section of code.
-
-#### OnPush
+### Best
 
 1. In `src/app/count/count.component.ts`
 
@@ -265,7 +254,7 @@ export class CountComponent {
 <p>{{(timer$ | async)}}</p>
 ```
 
-![onpush-oops]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/onpush-oops.gif)
+![onpush-oops]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/onpush-oops.gif)
 
 We set the Angular change detection strategy from `ChangeDetectionStrategy.Default` (look for changes everywhere) to `ChangeDetectionStrategy.OnPush` which will only detect changes when the `@Input()` has a new object pushed on it. In this case, when there is a new `user` object.
 
@@ -304,7 +293,7 @@ With the `OnPush` strategy we must push a new object through the `hello` compone
    }
    ```
 
-![onpush-fixed]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/onpush-fixed.gif)
+![onpush-fixed]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/onpush-fixed.gif)
 
 There. Now its working.
 
@@ -312,48 +301,6 @@ But look carefully and you will notice that 1 second after the the login button 
 
 ## Conclusion
 
-In conclusion, which is best for solving the infinite event loop, 1) NgZone or 2) OnPush? Plot twist! I choose 3) All of the above.
+In conclusion, all of these are perfectly acceptable ways to unsubscribe from observables. You choose your own destiny.
 
-1. In `src/app/hello/hello.component.ts`
-
-```ts
-import {
-  Component,
-  Input,
-  AfterViewChecked,
-  NgZone,
-  ChangeDetectionStrategy,
-} from "@angular/core";
-
-@Component({
-  selector: "hello",
-  templateUrl: "./hello.component.html",
-  styleUrls: ["./hello.component.css"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class HelloComponent implements AfterViewChecked {
-  @Input() user: any;
-  constructor(private zone: NgZone) {}
-
-  ngAfterViewChecked() {
-    console.count("ngAfterViewChecked");
-  }
-
-  isLoggedIn() {
-    this.zone.runOutsideAngular(() => {
-      setTimeout(() => {
-        // do something after 1 second
-      }, 1000);
-    });
-
-    if (this.user?.first) return true;
-    else return false;
-  }
-}
-```
-
-![onpush-ngzone]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/onpush-ngzone.gif)
-
-And now you are a little bit cooler programmer.
-
-![computer-fire](https://media.giphy.com/m2Q7FEc0bEr4I.gif)
+![choose-your-destiny]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/choose-your-destiny.gif)
