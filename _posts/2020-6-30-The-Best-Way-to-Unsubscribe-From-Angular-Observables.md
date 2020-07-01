@@ -154,15 +154,17 @@ But wait, what is happening in the console?...
 
 ### The Memory Leak
 
-Woopsie! We have just entered an endless event loop and my Macbook Pro gave me third-degree burns on my thighs.
+Woopsie! When we press `stop`, the observable is not actually stopped. We can see in the cosole that it keeps on keeping on. What's worse is that every new timer that is started continues to run forever. This, my friends is what we call a memory leak.
 
 ![its-fine]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/its-fine.gif)
+
+You might be able to get away with this if your app is simple seconds counter. But if your app is observing services with heavy payloads, this can easily spiral out of control. Here are three ways to unsubscribe from your Angular observables. Good. Better. and Best.
 
 ### Good
 
 Now, let's say we want to do something 1 second after the hello component checks for login.
 
-1. In `src/app/hello/hello.component.ts`
+1. In `src/app/count/count.component.ts`
 
 ```ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -255,51 +257,6 @@ export class CountComponent {
 ```html
 <p>{{(timer$ | async)}}</p>
 ```
-
-![onpush-oops]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/onpush-oops.gif)
-
-We set the Angular change detection strategy from `ChangeDetectionStrategy.Default` (look for changes everywhere) to `ChangeDetectionStrategy.OnPush` which will only detect changes when the `@Input()` has a new object pushed on it. In this case, when there is a new `user` object.
-
-But, whoops. Nothing happened when I clicked the login button. The problem here is that we are directly mutating the existing `user` object.
-
-```ts
-  app.component.ts
-  ...
-
-  login(e: MouseEvent) {
-    this.user.first = 'Bob';
-    this.user.last = 'Smith';
-  }
-
-  ...
-```
-
-With the `OnPush` strategy we must push a new object through the `hello` component. Try this instead.
-
-1. In `src/app/app.component.ts`
-
-   ```ts
-   import { Component } from "@angular/core";
-
-   @Component({
-     selector: "app-root",
-     templateUrl: "./app.component.html",
-     styleUrls: ["./app.component.css"],
-   })
-   export class AppComponent {
-     user = { first: "", last: "" };
-
-     login(e: MouseEvent) {
-       this.user = { first: "Bob", last: "Smith" };
-     }
-   }
-   ```
-
-![onpush-fixed]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/onpush-fixed.gif)
-
-There. Now its working.
-
-But look carefully and you will notice that 1 second after the the login button is pressed there are some more events. This is due to the `setTimeout` returning a second later.
 
 ## Conclusion
 
