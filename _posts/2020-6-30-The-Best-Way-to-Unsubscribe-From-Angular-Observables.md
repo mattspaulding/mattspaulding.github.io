@@ -245,6 +245,8 @@ This is a bit more complicated to understand than the first example, but has a n
 
 ### Best
 
+If you only need to read from your observable, the best way to do so is with the `async` pipe.
+
 1. In `src/app/count/count.component.ts`
 
 ```ts
@@ -270,8 +272,8 @@ export class CountComponent {
 
 {% endraw %}
 
+With an observable declared in the typescript, we can simply reference the observabe in the markup and apply the `async` pipe. This pipe handles the subscription internally and there is no need to remember to unsubscribe as this pipe handles that for you.
+
 ## Conclusion
 
-In conclusion, all of these are perfectly acceptable ways to unsubscribe from observables. You choose your own destiny.
-
-![choose-your-destiny]({{site.baseurl}}/images/2020-6-30-The-Best-Way-to-Unsubscribe-From-Angular-Observables/choose-your-destiny.gif)
+In conclusion, all of these are perfectly acceptable ways to unsubscribe from observables. It is up to you to determine the right one for your situation.
