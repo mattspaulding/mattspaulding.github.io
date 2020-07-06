@@ -89,10 +89,13 @@ All started up? Great! Now let's put some of our code in.
 
 1. In `src/app/count/count.component.html`
 {% raw %}
+
    ```html
-   <p>{{ time }}</p>
+   <p>{{time}}</p>
    ```
+
 {% endraw %}
+
 1. In `src/app/count/count.component.ts`
 
   ```ts
@@ -260,10 +263,13 @@ export class CountComponent {
 
 1. In `src/app/count/count.component.html`
 {% raw %}
+
 ```html
 <p>{{(timer$ | async)}}</p>
 ```
+
 {% endraw %}
+
 ## Conclusion
 
 In conclusion, all of these are perfectly acceptable ways to unsubscribe from observables. You choose your own destiny.
