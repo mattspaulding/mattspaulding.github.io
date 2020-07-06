@@ -74,7 +74,7 @@ Get the newest LTS node => [https://nodejs.org](https://nodejs.org)
    ![initial-start]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/initial-start.png)
 
 ## The Code
-
+{% raw %}
 All started up? Great! Now let's put some of our code in.
 
 1. Kill the server
@@ -152,7 +152,7 @@ All started up? Great! Now let's put some of our code in.
    ```sh
    npm start
    ```
-
+{% endraw %}
 ![default-fine]({{site.baseurl}}/images/2020-4-17-The-Curious-Case-of-Angular-and-the-Infinite-Change-Event-Loop/default-fine.gif)
 
 This is how it should look. Clicking the login button calls the login method which changes the user's name. The `user` object is passed into the `hello` component. The component checks for a first name and displays if one exists. In the hello component we log every time the `ngAfterViewChecked` Angular lifecycle hook is invoked.
