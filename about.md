@@ -69,6 +69,8 @@ source on GitHub with a Stack Overflow reputation of over 21,000.
 
 email: [mail@mattspaulding.org](mailto:mail@mattspaulding.org)
 
+LeetCode: [https://leetcode.com/mattspaulding](https://leetcode.com/mattspaulding)
+
 GitHub: [https://github.com/mattspaulding](https://github.com/mattspaulding)
 
 Stack Overflow: [http://stackoverflow.com/users/902630/matt](http://stackoverflow.com/users/902630/matt)
