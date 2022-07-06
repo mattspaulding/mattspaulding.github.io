@@ -5,10 +5,13 @@ permalink: /about/
 ---
 
 
-Full Stack Developer with over ten years of experience. Proven success in building
-software applications from conception to completion. Mentors and peer reviews junior
-developers. Active member of the development community, contributing to open
-source on GitHub with a Stack Overflow reputation of over 21,000.
+I am a Senior Software Engineering Manager with a Masters degree in
+Computer Science and over thirteen years of professional software engineering
+experience. I have spent the last six years leading software engineering teams
+that have built world-class products using cutting-edge technologies. My
+focus is on architecture, mentoring, and thought leadership, driving best
+practices in software development and establishing the north star in
+technology vision.
 
 --------------
 
