@@ -5,52 +5,63 @@ Product, Engineering & Agentic Systems Leadership
 
 ---
 
-## Overview
+## What I Do
 
-I build and lead production-grade AI systems.
+I design and lead production-grade AI systems.
 
-With 15+ years designing and scaling software across enterprise, startup, and regulated environments, I focus on turning emerging AI capabilities into reliable, operational systems that deliver measurable outcomes.
+My focus is on turning large language models and agentic architectures into reliable, observable, and scalable systems that operate under real-world constraints.
 
-My work sits at the intersection of architecture, product, and engineering execution.
+I work at the intersection of:
 
----
-
-## Current Focus
-
-- Agentic AI systems and orchestration patterns  
-- LLM architecture and structured output pipelines  
-- Enterprise-grade reliability and governance  
-- Cloud-native platform design (AWS, Azure)  
-- Translating business objectives into executable technical roadmaps  
+- AI system architecture  
+- Product strategy  
+- Engineering execution  
+- Cloud-native infrastructure  
+- Governance and reliability  
 
 ---
 
-## Selected Experience
+## Current Areas of Focus
 
-**Founder & AI Product Lead, Beesla**  
-Designed and deployed an AI-native platform integrating agent workflows, retrieval systems, and production guardrails.
+- Agentic AI architectures and orchestration patterns  
+- LLM context engineering and structured outputs  
+- Retrieval integration and hybrid memory strategies  
+- Resiliency patterns for autonomous systems  
+- Enterprise-grade AI governance and guardrails  
+- Cloud-native system design (AWS, Azure)  
 
-**Software Engineering Manager, LoanLogics**  
-Led v1.0 development of an enterprise underwriting platform in a regulated environment.
+---
 
-**Tech Lead Software Engineer, iProcedures**  
+## Selected Background
+
+**Founder & AI Product Lead — Beesla**  
+Built and deployed an AI-native sourcing platform integrating agent workflows, retrieval pipelines, and production guardrails.
+
+**Software Engineering Manager — LoanLogics**  
+Led v1.0 enterprise underwriting platform in a regulated financial environment.
+
+**Tech Lead Software Engineer — iProcedures**  
 Built real-time clinical monitoring systems within healthcare.
+
+15+ years building and scaling software across enterprise, startup, and regulated domains.
 
 ---
 
 ## Principles
 
-- Production > prototype  
-- Reliability > novelty  
-- Discipline > hype  
-- Systems thinking over feature sprawl  
+- Production over prototype  
+- Reliability over novelty  
+- Clear architecture over complexity  
+- Measurable outcomes over experimentation theater  
 
 ---
 
-## Contact
+## Location
 
-Email: mrmattspaulding@gmail.com  
-LinkedIn: https://www.linkedin.com/in/spauldingmatthew/  
-Location: Tampa, Florida  
+Tampa, Florida  
+Open to AI leadership, product + engineering executive roles  
 
 ---
+
+LinkedIn: https://www.linkedin.com/in/spauldingmatthew/
+Website: https://mattspaulding.org
