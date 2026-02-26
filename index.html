@@ -1,21 +1,158 @@
----
-layout: default
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Matt Spaulding | AI & Technology Executive</title>
+  <meta name="description" content="Matt Spaulding. AI & Technology Executive. Product, Engineering & Agentic Systems Leadership. Based in Tampa, FL." />
+  <meta name="robots" content="index,follow" />
+  <style>
+    :root{
+      --text:#111;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --bg:#ffffff;
+      --max:920px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:56px 22px 64px}
+    .topline{display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-bottom:28px}
+    .pill{
+      border:1px solid var(--line);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:14px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    h1{font-size:44px; line-height:1.1; margin:0 0 10px}
+    .title{font-size:18px; color:var(--muted); margin:0 0 20px; max-width:720px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 26px}
+    .btn{
+      display:inline-block;
+      border:1px solid var(--text);
+      padding:10px 14px;
+      border-radius:10px;
+      font-size:14px;
+      font-weight:600;
+    }
+    .btn.secondary{
+      border-color:var(--line);
+      color:var(--text);
+      background:#fff;
+    }
+    .divider{height:1px; background:var(--line); margin:26px 0}
+    h2{font-size:14px; letter-spacing:.08em; color:var(--muted); margin:0 0 10px}
+    p{margin:0 0 12px; font-size:16px}
+    .grid{display:grid; grid-template-columns:1fr; gap:18px}
+    @media (min-width:860px){
+      .grid{grid-template-columns:1.2fr .8fr; gap:34px}
+      h1{font-size:52px}
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+      background:#fff;
+    }
+    .role{font-weight:700; margin-bottom:4px}
+    .meta{color:var(--muted); font-size:14px; margin-bottom:10px}
+    ul{margin:10px 0 0 18px; padding:0}
+    li{margin:6px 0; color:var(--text)}
+    .small{font-size:14px; color:var(--muted)}
+    .footer{margin-top:28px; color:var(--muted); font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topline">
+      <div class="pill">Tampa, Florida</div>
+      <div class="pill">Open to: AI leadership, Product + Engineering exec roles</div>
+    </div>
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+    <h1>Matt Spaulding</h1>
+    <p class="title">
+      AI &amp; Technology Executive | Product, Engineering &amp; Agentic Systems Leadership
+    </p>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+    <p>
+      I build and lead production-grade AI systems and cloud platforms that perform reliably under real constraints.
+      I care about execution, system design, governance, and measurable outcomes.
+    </p>
 
-      <div class="entry">
-        <img src="{{ site.baseurl }}{{post.image}}"/>
-        <br>
-        <br>
-        {{ post.excerpt }}
-      </div>
+    <div class="cta">
+      <!-- Put your PDF in the same folder as this file and name it resume.pdf -->
+      <a class="btn" href="/resume.pdf">Download Resume</a>
+      <a class="btn secondary" href="https://www.linkedin.com/in/spauldingmatthew/" rel="noreferrer">LinkedIn</a>
+      <a class="btn secondary" href="mailto:mrmattspaulding@gmail.com">Email</a>
+    </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+    <div class="divider"></div>
+
+    <div class="grid">
+      <section>
+        <h2>ABOUT</h2>
+        <p>
+          I’ve spent 15+ years building and scaling production software across enterprise and growth-stage companies,
+          including regulated environments.
+        </p>
+        <p>
+          Most recently, I founded Beesla and led the design and deployment of an AI-native platform,
+          including agent workflows, retrieval integration, and reliability guardrails.
+        </p>
+        <p>
+          I operate at the intersection of product decisions and engineering execution,
+          translating business priorities into systems that ship cleanly and stay stable.
+        </p>
+
+        <div class="divider"></div>
+
+        <h2>CORE EXPERTISE</h2>
+        <ul>
+          <li>AI agents and agentic systems</li>
+          <li>LLM architecture, orchestration, structured outputs, evaluation</li>
+          <li>Enterprise and SaaS architecture</li>
+          <li>Cloud platforms (AWS, Azure) and operational reliability</li>
+          <li>Engineering leadership and delivery discipline</li>
+          <li>AI governance, risk, and production readiness</li>
+        </ul>
+      </section>
+
+      <aside>
+        <h2>SELECTED EXPERIENCE</h2>
+
+        <div class="card">
+          <div class="role">Founder &amp; AI Product Lead, Beesla</div>
+          <div class="meta">2025–Present</div>
+          <div class="small">AI-native platform, agent workflows, retrieval, guardrails, production pilots.</div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div class="role">Software Engineering Manager, LoanLogics</div>
+          <div class="meta">2018–2019</div>
+          <div class="small">Enterprise underwriting platform, team leadership, microservices, AWS delivery.</div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div class="role">Tech Lead Software Engineer, iProcedures</div>
+          <div class="meta">2016–2018</div>
+          <div class="small">Healthcare AIMS system, real-time monitoring and visualization in regulated context.</div>
+        </div>
+
+        <div class="footer">
+          Prefer a quick intro? Email me with the role and location, and I’ll respond fast.
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
