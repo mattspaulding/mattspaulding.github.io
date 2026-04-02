@@ -7,152 +7,675 @@
   <meta name="description" content="Matt Spaulding. AI & Technology Executive. Product, Engineering & Agentic Systems Leadership. Based in Tampa, FL." />
   <meta name="robots" content="index,follow" />
   <style>
-    :root{
-      --text:#111;
-      --muted:#4b5563;
-      --line:#e5e7eb;
-      --bg:#ffffff;
-      --max:920px;
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --text: #e4e4e7;
+      --muted: #9ca3af;
+      --accent1: #6366f1;
+      --accent2: #a855f7;
+      --accent3: #3b82f6;
+      --border: rgba(255,255,255,0.08);
+      --glow: rgba(99,102,241,0.15);
+      --max: 1060px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.45;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    a{color:inherit; text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max); margin:0 auto; padding:56px 22px 64px}
-    .topline{display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-bottom:28px}
-    .pill{
-      border:1px solid var(--line);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:14px;
-      color:var(--muted);
-      white-space:nowrap;
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- Hero ---- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
-    h1{font-size:44px; line-height:1.1; margin:0 0 10px}
-    .title{font-size:18px; color:var(--muted); margin:0 0 20px; max-width:720px}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 26px}
-    .btn{
-      display:inline-block;
-      border:1px solid var(--text);
-      padding:10px 14px;
-      border-radius:10px;
-      font-size:14px;
-      font-weight:600;
+    #particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
     }
-    .btn.secondary{
-      border-color:var(--line);
-      color:var(--text);
-      background:#fff;
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 40px 24px;
+      max-width: 820px;
     }
-    .divider{height:1px; background:var(--line); margin:26px 0}
-    h2{font-size:14px; letter-spacing:.08em; color:var(--muted); margin:0 0 10px}
-    p{margin:0 0 12px; font-size:16px}
-    .grid{display:grid; grid-template-columns:1fr; gap:18px}
-    @media (min-width:860px){
-      .grid{grid-template-columns:1.2fr .8fr; gap:34px}
-      h1{font-size:52px}
+    .hero-pills {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
     }
-    .card{
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:16px;
-      background:#fff;
+    .pill {
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
     }
-    .role{font-weight:700; margin-bottom:4px}
-    .meta{color:var(--muted); font-size:14px; margin-bottom:10px}
-    ul{margin:10px 0 0 18px; padding:0}
-    li{margin:6px 0; color:var(--text)}
-    .small{font-size:14px; color:var(--muted)}
-    .footer{margin-top:28px; color:var(--muted); font-size:13px}
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 0%, var(--accent1) 50%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+    .tagline {
+      font-size: clamp(18px, 2.5vw, 24px);
+      color: var(--muted);
+      min-height: 1.6em;
+      margin-bottom: 12px;
+    }
+    .tagline .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--accent1);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-desc {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      opacity: 0;
+      animation: fadeUp 0.8s 2.5s forwards;
+    }
+    .cta {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 2.8s forwards;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: #fff;
+      border: none;
+      box-shadow: 0 0 24px rgba(99,102,241,0.3);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 40px rgba(99,102,241,0.5);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent1);
+      box-shadow: 0 0 20px var(--glow);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 0.8s 3.2s forwards;
+    }
+    .scroll-hint span {
+      display: block;
+      width: 24px;
+      height: 38px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      position: relative;
+    }
+    .scroll-hint span::after {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 8px;
+      background: var(--accent1);
+      border-radius: 2px;
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scrollDot 2s infinite;
+    }
+    @keyframes scrollDot {
+      0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(14px); }
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent1);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff, var(--accent1));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-text {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* ---- Reveal animation ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- Expertise grid ---- */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .expertise-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+    }
+    .expertise-card:hover {
+      border-color: rgba(99,102,241,0.3);
+      box-shadow: 0 0 30px var(--glow);
+      transform: translateY(-4px);
+    }
+    .expertise-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .expertise-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .expertise-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ---- Experience ---- */
+    .exp-list {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .exp-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(8px);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      transition: all 0.3s;
+    }
+    .exp-card:hover {
+      border-color: rgba(99,102,241,0.3);
+      box-shadow: 0 0 30px var(--glow);
+    }
+    @media (min-width: 640px) {
+      .exp-card { grid-template-columns: 180px 1fr; gap: 24px; }
+    }
+    .exp-date {
+      font-size: 14px;
+      color: var(--accent1);
+      font-weight: 600;
+    }
+    .exp-role {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .exp-company {
+      font-size: 15px;
+      color: var(--accent2);
+      margin-bottom: 10px;
+    }
+    .exp-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ---- Principles ---- */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .principle {
+      padding: 24px;
+      border-left: 3px solid var(--accent1);
+      background: rgba(99,102,241,0.04);
+      border-radius: 0 12px 12px 0;
+    }
+    .principle p {
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ---- Footer ---- */
+    .footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: var(--accent1);
+      text-decoration: none;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.2);
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <div class="topline">
-      <div class="pill">Tampa, Florida</div>
-      <div class="pill">Open to: AI leadership, Product + Engineering exec roles</div>
-    </div>
 
-    <h1>Matt Spaulding</h1>
-    <p class="title">
-      AI &amp; Technology Executive | Product, Engineering &amp; Agentic Systems Leadership
+  <!-- ====== HERO ====== -->
+  <section class="hero">
+    <canvas id="particles"></canvas>
+    <div class="hero-content">
+      <div class="hero-pills">
+        <div class="pill">Tampa, Florida</div>
+        <div class="pill">Open to AI Leadership & Executive Roles</div>
+      </div>
+      <h1>Matt Spaulding</h1>
+      <div class="tagline" id="tagline"><span class="cursor"></span></div>
+      <p class="hero-desc">
+        I build and lead production-grade AI systems that perform reliably under real-world constraints.
+        Focused on execution, system design, governance, and measurable outcomes.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="/Matthew Spaulding AI Technology Leader Resume.pdf">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
+          Download Resume
+        </a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/spauldingmatthew/" rel="noreferrer">LinkedIn</a>
+        <a class="btn btn-outline" href="mailto:mrmattspaulding@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="scroll-hint"><span></span></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ====== ABOUT ====== -->
+  <section class="section reveal">
+    <div class="section-label">About</div>
+    <h2 class="section-title">15+ years building software<br/>that ships and stays stable.</h2>
+    <p class="section-text">
+      I've built and scaled production systems across enterprise, growth-stage, and regulated environments
+      including fintech and healthcare.
     </p>
-
-    <p>
-      I build and lead production-grade AI systems and cloud platforms that perform reliably under real constraints.
-      I care about execution, system design, governance, and measurable outcomes.
+    <p class="section-text">
+      Most recently, I founded Beesla and led the design of an AI-native platform integrating agent workflows,
+      retrieval pipelines, and production guardrails from day one.
     </p>
+    <p class="section-text">
+      I operate at the intersection of product decisions and engineering execution, translating business priorities
+      into systems that ship cleanly and hold up under pressure.
+    </p>
+  </section>
 
-    <div class="cta">
-      <!-- Put your PDF in the same folder as this file and name it resume.pdf -->
-      <a class="btn" href="/Matthew Spaulding AI Technology Leader Resume.pdf">Download Resume</a>
-      <a class="btn secondary" href="https://www.linkedin.com/in/spauldingmatthew/" rel="noreferrer">LinkedIn</a>
-      <a class="btn secondary" href="mailto:mrmattspaulding@gmail.com">Email</a>
+  <div class="divider"></div>
+
+  <!-- ====== EXPERTISE ====== -->
+  <section class="section reveal">
+    <div class="section-label">Core Expertise</div>
+    <h2 class="section-title">What I bring to the table.</h2>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="24" height="24" fill="none" stroke="var(--accent1)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4m-9.5-9.5h4m14 0h4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83m0-15.56l-2.83 2.83m-9.9 9.9l-2.83 2.83"/></svg>
+        </div>
+        <h3>Agentic AI Systems</h3>
+        <p>Designing and deploying autonomous agent architectures with orchestration, memory, and reliability patterns.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="24" height="24" fill="none" stroke="var(--accent2)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M8 10l3 3-3 3m5 0h4"/></svg>
+        </div>
+        <h3>LLM Architecture</h3>
+        <p>Context engineering, structured outputs, evaluation frameworks, and retrieval-augmented generation at scale.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="24" height="24" fill="none" stroke="var(--accent3)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+        </div>
+        <h3>Enterprise & SaaS Architecture</h3>
+        <p>Scalable system design, microservices, API-first platforms, and operational reliability at enterprise scale.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="24" height="24" fill="none" stroke="var(--accent1)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h10a4 4 0 100-8 5.5 5.5 0 00-10.9-1A4 4 0 003 15z"/></svg>
+        </div>
+        <h3>Cloud Platforms</h3>
+        <p>AWS and Azure architecture, infrastructure-as-code, CI/CD pipelines, and cloud-native operational patterns.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="24" height="24" fill="none" stroke="var(--accent2)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Engineering Leadership</h3>
+        <p>Team building, delivery discipline, cross-functional alignment, and shipping culture in fast-paced environments.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">
+          <svg width="24" height="24" fill="none" stroke="var(--accent3)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>AI Governance & Reliability</h3>
+        <p>Production readiness frameworks, guardrails, risk assessment, and compliance in regulated domains.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="divider"></div>
+  <div class="divider"></div>
 
-    <div class="grid">
-      <section>
-        <h2>ABOUT</h2>
-        <p>
-          I’ve spent 15+ years building and scaling production software across enterprise and growth-stage companies,
-          including regulated environments.
-        </p>
-        <p>
-          Most recently, I founded Beesla and led the design and deployment of an AI-native platform,
-          including agent workflows, retrieval integration, and reliability guardrails.
-        </p>
-        <p>
-          I operate at the intersection of product decisions and engineering execution,
-          translating business priorities into systems that ship cleanly and stay stable.
-        </p>
-
-        <div class="divider"></div>
-
-        <h2>CORE EXPERTISE</h2>
-        <ul>
-          <li>AI agents and agentic systems</li>
-          <li>LLM architecture, orchestration, structured outputs, evaluation</li>
-          <li>Enterprise and SaaS architecture</li>
-          <li>Cloud platforms (AWS, Azure) and operational reliability</li>
-          <li>Engineering leadership and delivery discipline</li>
-          <li>AI governance, risk, and production readiness</li>
-        </ul>
-      </section>
-
-      <aside>
-        <h2>SELECTED EXPERIENCE</h2>
-
-        <div class="card">
-          <div class="role">Founder &amp; AI Product Lead, Beesla</div>
-          <div class="meta">2025–Present</div>
-          <div class="small">AI-native platform, agent workflows, retrieval, guardrails, production pilots.</div>
+  <!-- ====== EXPERIENCE ====== -->
+  <section class="section reveal">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">Where I've built.</h2>
+    <div class="exp-list">
+      <div class="exp-card">
+        <div>
+          <div class="exp-date">2025 &mdash; Present</div>
         </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="role">Software Engineering Manager, LoanLogics</div>
-          <div class="meta">2018–2019</div>
-          <div class="small">Enterprise underwriting platform, team leadership, microservices, AWS delivery.</div>
+        <div>
+          <div class="exp-role">Founder & AI Product Lead</div>
+          <div class="exp-company">Beesla</div>
+          <div class="exp-desc">
+            Designed and deployed an AI-native sourcing platform integrating agent workflows, retrieval pipelines,
+            and production guardrails. End-to-end ownership from architecture to pilot delivery.
+          </div>
         </div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="role">Tech Lead Software Engineer, iProcedures</div>
-          <div class="meta">2016–2018</div>
-          <div class="small">Healthcare AIMS system, real-time monitoring and visualization in regulated context.</div>
+      </div>
+      <div class="exp-card">
+        <div>
+          <div class="exp-date">2018 &mdash; 2019</div>
         </div>
-
-        <div class="footer">
-          Prefer a quick intro? Email me with the role and location, and I’ll respond fast.
+        <div>
+          <div class="exp-role">Software Engineering Manager</div>
+          <div class="exp-company">LoanLogics</div>
+          <div class="exp-desc">
+            Led v1.0 of an enterprise underwriting platform in a regulated fintech environment.
+            Managed team delivery, microservices architecture, and AWS infrastructure.
+          </div>
         </div>
-      </aside>
+      </div>
+      <div class="exp-card">
+        <div>
+          <div class="exp-date">2016 &mdash; 2018</div>
+        </div>
+        <div>
+          <div class="exp-role">Tech Lead Software Engineer</div>
+          <div class="exp-company">iProcedures</div>
+          <div class="exp-desc">
+            Built real-time clinical monitoring and visualization systems (AIMS) within healthcare,
+            operating under strict regulatory and reliability requirements.
+          </div>
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ====== PRINCIPLES ====== -->
+  <section class="section reveal">
+    <div class="section-label">Principles</div>
+    <h2 class="section-title">How I operate.</h2>
+    <div class="principles-grid">
+      <div class="principle"><p>Production over prototype.</p></div>
+      <div class="principle"><p>Reliability over novelty.</p></div>
+      <div class="principle"><p>Clear architecture over complexity.</p></div>
+      <div class="principle"><p>Measurable outcomes over experimentation theater.</p></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/Matthew Spaulding AI Technology Leader Resume.pdf">Resume</a>
+      <a href="https://www.linkedin.com/in/spauldingmatthew/" rel="noreferrer">LinkedIn</a>
+      <a href="mailto:mrmattspaulding@gmail.com">Email</a>
+    </div>
+    <div class="footer-copy">Matt Spaulding &middot; Tampa, FL</div>
+  </footer>
+
+  <script>
+    /* ---- Particle Network ---- */
+    (function() {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+      let w, h, particles, mouse = { x: null, y: null };
+      const PARTICLE_COUNT = window.innerWidth < 640 ? 40 : 80;
+      const MAX_DIST = 140;
+
+      function resize() {
+        w = canvas.width = canvas.parentElement.offsetWidth;
+        h = canvas.height = canvas.parentElement.offsetHeight;
+      }
+
+      function init() {
+        resize();
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            r: Math.random() * 2 + 1
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(99,102,241,0.5)';
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const q = particles[j];
+            const dx = p.x - q.x, dy = p.y - q.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < MAX_DIST) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.strokeStyle = 'rgba(99,102,241,' + (1 - dist / MAX_DIST) * 0.2 + ')';
+              ctx.stroke();
+            }
+          }
+
+          if (mouse.x !== null) {
+            const dx = p.x - mouse.x, dy = p.y - mouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 200) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = 'rgba(168,85,247,' + (1 - dist / 200) * 0.3 + ')';
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      canvas.addEventListener('mousemove', function(e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      canvas.addEventListener('mouseleave', function() {
+        mouse.x = null; mouse.y = null;
+      });
+
+      window.addEventListener('resize', resize);
+      init();
+      draw();
+    })();
+
+    /* ---- Typing Animation ---- */
+    (function() {
+      const phrases = [
+        'AI & Technology Executive',
+        'Agentic Systems Architect',
+        'Product & Engineering Leader',
+        'Building Production-Grade AI'
+      ];
+      const el = document.getElementById('tagline');
+      let phraseIdx = 0, charIdx = 0, deleting = false;
+
+      function type() {
+        const phrase = phrases[phraseIdx];
+        if (!deleting) {
+          charIdx++;
+          if (charIdx > phrase.length) {
+            setTimeout(function() { deleting = true; type(); }, 2000);
+            return;
+          }
+        } else {
+          charIdx--;
+          if (charIdx < 0) {
+            charIdx = 0;
+            deleting = false;
+            phraseIdx = (phraseIdx + 1) % phrases.length;
+          }
+        }
+        el.innerHTML = phrase.substring(0, charIdx) + '<span class="cursor"></span>';
+        setTimeout(type, deleting ? 30 : 70);
+      }
+
+      setTimeout(type, 800);
+    })();
+
+    /* ---- Scroll Reveal ---- */
+    (function() {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+
 </body>
 </html>
