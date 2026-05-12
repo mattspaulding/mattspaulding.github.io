@@ -67,11 +67,6 @@ color: var(--muted);
 background: rgba(255,255,255,0.03);
 backdrop-filter: blur(8px);
 }
-.pill-fresh {
-border-color: rgba(99,102,241,0.4);
-color: #fff;
-background: rgba(99,102,241,0.08);
-}
 .hero h1 {
 font-size: clamp(48px, 8vw, 80px);
 font-weight: 800;
@@ -381,7 +376,6 @@ gap: 16px;
 .footer-links {
 display: flex;
 gap: 24px;
-flex-wrap: wrap;
 }
 .footer-links a {
 font-size: 14px;
@@ -406,21 +400,19 @@ color: rgba(255,255,255,0.2);
 <div class="hero-content">
 <div class="hero-pills">
 <div class="pill">Tampa, Florida</div>
-<div class="pill pill-fresh">Just shipped Mender &middot; Google Cloud Rapid Agent Hackathon</div>
-<div class="pill">Open to AI Leadership &amp; Executive Roles</div>
+<div class="pill">Open to AI Leadership & Executive Roles</div>
 </div>
 <h1>Matt Spaulding</h1>
 <div class="tagline" id="tagline"><span class="cursor"></span></div>
 <p class="hero-desc">
 I build and lead production-grade AI systems that perform reliably under real-world constraints.
-Focused on execution, system design, governance, evals, and measurable outcomes.
+Focused on execution, system design, governance, and measurable outcomes.
 </p>
 <div class="cta">
 <a class="btn btn-primary" href="/Matthew Spaulding AI Technology Leader Resume.pdf">
 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>
 Download Resume
 </a>
-<a class="btn btn-outline" href="#featured">View Mender</a>
 <a class="btn btn-outline" href="https://www.linkedin.com/in/spauldingmatthew/" rel="noreferrer">LinkedIn</a>
 <a class="btn btn-outline" href="mailto:mrmattspaulding@gmail.com">Email</a>
 </div>
@@ -445,12 +437,6 @@ retrieval pipelines, and production guardrails from day one.
 <p class="section-text">
 I operate at the intersection of product decisions and engineering execution, translating business priorities
 into systems that ship cleanly and hold up under pressure.
-</p>
-<p class="section-text">
-In May&ndash;June 2026 I built <strong style="color:#fff">Mender</strong> for the Google Cloud Rapid Agent
-Hackathon (Arize track) &mdash; the cleanest expression I've shipped of what I think production AI should
-look like: observable, evaluable, human-in-the-loop on the moments that matter, and capable of improving
-itself in the moments that don't.
 </p>
 </section>
 
@@ -520,7 +506,7 @@ Live Demo
 <svg width="24" height="24" fill="none" stroke="var(--accent1)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h10a4 4 0 100-8 5.5 5.5 0 00-10.9-1A4 4 0 003 15z"/></svg>
 </div>
 <h3>Cloud Platforms</h3>
-<p>AWS, Azure, and GCP (Cloud Run, Cloud Scheduler, Vertex AI) &mdash; infrastructure-as-code, CI/CD, and cloud-native operations.</p>
+<p>AWS and Azure architecture, infrastructure-as-code, CI/CD pipelines, and cloud-native operational patterns.</p>
 </div>
 <div class="expertise-card">
 <div class="expertise-icon">
@@ -546,21 +532,6 @@ Live Demo
 <div class="section-label">Experience</div>
 <h2 class="section-title">Where I've built.</h2>
 <div class="exp-list">
-<div class="exp-card">
-<div>
-<div class="exp-date">May &mdash; June 2026</div>
-</div>
-<div>
-<div class="exp-role">Mender &mdash; Self-Healing for Production Agents</div>
-<div class="exp-company">Google Cloud Rapid Agent Hackathon &middot; Arize Track</div>
-<div class="exp-desc">
-Solo build. Autonomous agent that watches another agent in production: finds regressions via Phoenix traces,
-generates focused evals, drafts and validates prompt patches, and ships fixes to Slack for one-click approval.
-Also reads its own traces and tunes its investigation policy. Demo lifted eval pass rate from 4/10 to 10/10
-(+60%) on a regressed target. Google ADK &middot; Gemini 3 &middot; Arize Phoenix MCP &middot; Cloud Run.
-</div>
-</div>
-</div>
 <div class="exp-card">
 <div>
 <div class="exp-date">2025 &mdash; Present</div>
@@ -623,8 +594,6 @@ operating under strict regulatory and reliability requirements.
 <footer class="footer">
 <div class="footer-links">
 <a href="/Matthew Spaulding AI Technology Leader Resume.pdf">Resume</a>
-<a href="https://github.com/mattspaulding/mender-agent" rel="noreferrer">Mender</a>
-<a href="https://github.com/mattspaulding" rel="noreferrer">GitHub</a>
 <a href="https://www.linkedin.com/in/spauldingmatthew/" rel="noreferrer">LinkedIn</a>
 <a href="mailto:mrmattspaulding@gmail.com">Email</a>
 </div>
@@ -719,7 +688,6 @@ draw();
 const phrases = [
 'AI & Technology Executive',
 'Agentic Systems Architect',
-'Built Mender · Self-Healing Agent',
 'Product & Engineering Leader',
 'Building Production-Grade AI'
 ];
