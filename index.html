@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Matt Spaulding | AI & Technology Executive · Built Mender</title>
-<meta name="description" content="Matt Spaulding. AI & Technology Executive. Built Mender — self-healing agent for production agents — for the Google Cloud Rapid Agent Hackathon, Arize track. Tampa, FL." />
+<title>Matt Spaulding | AI Product Engineer & Technical Leader · Built Mender</title>
+<meta name="description" content="Matt Spaulding. AI Product Engineer & Technical Leader. Agentic systems, LLM architecture, and production reliability. Built Mender, a self-healing agent for production agents. Tampa, FL." />
 <meta name="robots" content="index,follow" />
 <style>
 :root {
@@ -296,6 +296,50 @@ color: var(--text);
 font-weight: 500;
 }
 
+/* ---- Shipped Work ---- */
+.shipped-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 16px;
+margin-top: 32px;
+}
+.shipped-card {
+display: block;
+border: 1px solid var(--border);
+border-radius: 16px;
+padding: 24px;
+background: rgba(255,255,255,0.02);
+backdrop-filter: blur(8px);
+transition: all 0.3s;
+}
+.shipped-card:hover {
+border-color: rgba(99,102,241,0.3);
+box-shadow: 0 0 30px var(--glow);
+transform: translateY(-4px);
+text-decoration: none;
+}
+.shipped-card h3 {
+font-size: 16px;
+font-weight: 700;
+margin-bottom: 8px;
+color: #fff;
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+gap: 10px 14px;
+flex-wrap: wrap;
+}
+.shipped-domain {
+font-size: 13px;
+font-weight: 500;
+color: var(--accent2);
+}
+.shipped-card p {
+font-size: 14px;
+color: var(--muted);
+line-height: 1.5;
+}
+
 /* ---- Experience ---- */
 .exp-list {
 margin-top: 32px;
@@ -400,13 +444,14 @@ color: rgba(255,255,255,0.2);
 <div class="hero-content">
 <div class="hero-pills">
 <div class="pill">Tampa, Florida</div>
-<div class="pill">Open to AI Leadership & Executive Roles</div>
+<div class="pill">Open to Senior AI Engineering & Technical Product Roles</div>
+<div class="pill">Remote</div>
 </div>
 <h1>Matt Spaulding</h1>
 <div class="tagline" id="tagline"><span class="cursor"></span></div>
 <p class="hero-desc">
-I build and lead production-grade AI systems that perform reliably under real-world constraints.
-Focused on execution, system design, governance, and measurable outcomes.
+I design and ship production AI systems: agent orchestration, retrieval, and evaluation that hold up
+under real-world constraints. Hands-on across architecture and delivery, from first prototype to production.
 </p>
 <div class="cta">
 <a class="btn btn-primary" href="/Matthew Spaulding AI Technology Leader Resume.pdf">
@@ -427,16 +472,18 @@ Download Resume
 <div class="section-label">About</div>
 <h2 class="section-title">15+ years building software<br/>that ships and stays stable.</h2>
 <p class="section-text">
-I've built and scaled production systems across enterprise, growth-stage, and regulated environments
-including fintech and healthcare.
+I've built and scaled production systems across enterprise, growth-stage, and regulated environments,
+including a ~60-person engineering org at PwC, a Series A team I grew from 3 to 20+ at Spekit, and regulated
+platforms in fintech and healthcare.
 </p>
 <p class="section-text">
-Most recently, I founded Beesla and led the design of an AI-native platform integrating agent workflows,
-retrieval pipelines, and production guardrails from day one.
+Most recently I founded Beesla, an AI-native platform integrating agent workflows, retrieval pipelines, and
+production guardrails from day one, reaching 1M+ impressions across search engines and AI assistants
+and 80K+ unique users.
 </p>
 <p class="section-text">
-I operate at the intersection of product decisions and engineering execution, translating business priorities
-into systems that ship cleanly and hold up under pressure.
+I work at the intersection of product decisions and engineering execution: translating business priorities
+into systems that ship cleanly, and sitting with the customers who use them.
 </p>
 </section>
 
@@ -445,19 +492,24 @@ into systems that ship cleanly and hold up under pressure.
 <!-- ====== FEATURED PROJECT ====== -->
 <section id="featured" class="section reveal">
 <div class="section-label">Featured Project</div>
-<div class="featured-meta">Google Cloud Rapid Agent Hackathon &middot; Arize Track &middot; May&ndash;June 2026</div>
-<h2 class="section-title">Mender &mdash;<br/>self-healing for production agents.</h2>
+<h2 class="section-title">Mender:<br/>self-healing for production agents.</h2>
+<div class="featured-meta">Built for the Google Cloud Rapid Agent Hackathon &middot; Arize Track &middot; May&ndash;June 2026</div>
 <p class="section-text">
 Every fifteen minutes, Mender wakes up, reads the last hour of traces from another agent via the Arize Phoenix
 MCP server, clusters failures, hypothesizes a root cause, generates a focused eval set, drafts a prompt patch,
-re-runs the same evals against the patched version, and &mdash; if it measurably improves &mdash; posts a
+re-runs the same evals against the patched version, and, if it measurably improves, posts a
 structured incident card to Slack with one-click human approval. He also reads his own traces every cycle and
 tunes himself: how many evals to generate, what confidence threshold to use, when to ask for help.
 </p>
 <p class="section-text">
 End-to-end verified: detected a real regression in a target agent ("ambiguous source currency silently defaulted
 to USD"), generated 10 focused eval cases, lifted pass rate from <strong style="color:#fff">4/10 to 10/10</strong>
-on the patched version &mdash; a <strong style="color:#fff">+60% lift</strong>, ready for one-click Slack approval.
+on the patched version, a <strong style="color:#fff">+60% lift</strong>, ready for one-click Slack approval.
+</p>
+<p class="section-text">
+The pattern generalizes: an agent that reads production traces, clusters failures, generates targeted evals,
+and validates its own patches before a human ever sees them. It's the same observe/evaluate/improve loop that any
+production LLM system needs.
 </p>
 <p class="section-text">
 <span class="featured-stack">Stack:</span> Google ADK (Python) &middot; Gemini 3 on Vertex AI &middot;
@@ -470,6 +522,43 @@ Live Demo
 </a>
 <a class="btn btn-outline" href="https://github.com/mattspaulding/mender-agent" target="_blank" rel="noreferrer">Source on GitHub</a>
 <a class="btn btn-outline" href="https://rapid-agent.devpost.com/" target="_blank" rel="noreferrer">Hackathon</a>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ====== SHIPPED WORK ====== -->
+<section class="section reveal">
+<div class="section-label">Shipped Work</div>
+<h2 class="section-title">Products I've built and shipped.</h2>
+<p class="section-text">
+Independent studio work through Strawberry Digital: designed, built, and shipped in-house.
+</p>
+<div class="shipped-grid">
+<a class="shipped-card" href="https://mttholdem.com" target="_blank" rel="noreferrer">
+<h3>MTT Hold'em <span class="shipped-domain">mttholdem.com</span></h3>
+<p>Interactive tournament-poker trainer. 136 lesson hands street-by-street plus a graded 100-hand exam covering push/fold, ICM, and M-zone play.</p>
+</a>
+<a class="shipped-card" href="https://happenin.city" target="_blank" rel="noreferrer">
+<h3>Happenin' <span class="shipped-domain">happenin.city</span></h3>
+<p>Curated events and places discovery across 50+ US metros. Chosen, not crowdsourced.</p>
+</a>
+<a class="shipped-card" href="https://eggboo.com" target="_blank" rel="noreferrer">
+<h3>EggBoo <span class="shipped-domain">eggboo.com</span></h3>
+<p>Automated product-research and deals engine with live marketplace pricing and buying guides.</p>
+</a>
+<a class="shipped-card" href="https://mochimeadows.app" target="_blank" rel="noreferrer">
+<h3>Mochi Meadows <span class="shipped-domain">mochimeadows.app</span></h3>
+<p>Cozy offline math game for kids: arithmetic through fractions, decimals, and shapes.</p>
+</a>
+<a class="shipped-card" href="https://midsentence.app" target="_blank" rel="noreferrer">
+<h3>Midsentence <span class="shipped-domain">midsentence.app</span></h3>
+<p>A speed reader with a point of view: one word at a time, at a pace authored for each piece, with no library, no import, and no slider. You tune in, you don't operate it.</p>
+</a>
+<a class="shipped-card" href="https://callsong.app" target="_blank" rel="noreferrer">
+<h3>Callsong <span class="shipped-domain">callsong.app</span></h3>
+<p>Call-and-response vocal-pitch trainer built on the classic expanding-scale warm-up. Plays each phrase on piano, listens as you sing it back, and scores every note in cents.</p>
+</a>
 </div>
 </section>
 
@@ -492,7 +581,7 @@ Live Demo
 <svg width="24" height="24" fill="none" stroke="var(--accent2)" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M8 10l3 3-3 3m5 0h4"/></svg>
 </div>
 <h3>LLM Architecture</h3>
-<p>Context engineering, structured outputs, evaluation frameworks, and retrieval-augmented generation at scale.</p>
+<p>Context engineering, structured outputs, evaluation frameworks, and retrieval-augmented generation at scale. Hands-on across Anthropic Claude, OpenAI, and Google Gemini.</p>
 </div>
 <div class="expertise-card">
 <div class="expertise-icon">
@@ -506,7 +595,7 @@ Live Demo
 <svg width="24" height="24" fill="none" stroke="var(--accent1)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h10a4 4 0 100-8 5.5 5.5 0 00-10.9-1A4 4 0 003 15z"/></svg>
 </div>
 <h3>Cloud Platforms</h3>
-<p>AWS and Azure architecture, infrastructure-as-code, CI/CD pipelines, and cloud-native operational patterns.</p>
+<p>AWS, GCP, and Azure architecture. Infrastructure-as-code, CI/CD pipelines, and cloud-native operational patterns. Python, TypeScript, PostgreSQL, Docker, Kubernetes, Terraform.</p>
 </div>
 <div class="expertise-card">
 <div class="expertise-icon">
@@ -534,40 +623,94 @@ Live Demo
 <div class="exp-list">
 <div class="exp-card">
 <div>
-<div class="exp-date">2025 &mdash; Present</div>
+<div class="exp-date">2025 &ndash; Present</div>
 </div>
 <div>
 <div class="exp-role">Founder & AI Product Lead</div>
 <div class="exp-company">Beesla</div>
 <div class="exp-desc">
-Designed and deployed an AI-native sourcing platform integrating agent workflows, retrieval pipelines,
-and production guardrails. End-to-end ownership from architecture to pilot delivery.
+Built an AI-native platform converting natural language into structured workflows: agent orchestration,
+retrieval, tool calling, and evaluation loops on Anthropic Claude. Reached 1M+ impressions and 80K+ unique users.
+End-to-end ownership from architecture to pilot delivery.
 </div>
 </div>
 </div>
 <div class="exp-card">
 <div>
-<div class="exp-date">2018 &mdash; 2019</div>
+<div class="exp-date">2024 &ndash; 2025</div>
+</div>
+<div>
+<div class="exp-role">Cofounder & Founding Engineer</div>
+<div class="exp-company">JobPhaze</div>
+<div class="exp-desc">
+Early-stage HR SaaS. Owned system architecture across services, data pipelines, and cloud infrastructure.
+Established CI/CD, testing, IaC, and monitoring from scratch.
+</div>
+</div>
+</div>
+<div class="exp-card">
+<div>
+<div class="exp-date">2023 &ndash; 2024</div>
+</div>
+<div>
+<div class="exp-role">Cofounder & Founding Engineer</div>
+<div class="exp-company">Weaver</div>
+<div class="exp-desc">
+Owned architecture and technical direction for an early-stage consumer app. Designed backend systems
+and data models for multi-client usage and growth.
+</div>
+</div>
+</div>
+<div class="exp-card">
+<div>
+<div class="exp-date">2022</div>
+</div>
+<div>
+<div class="exp-role">Software Engineering Manager</div>
+<div class="exp-company">Spekit</div>
+<div class="exp-desc">
+Scaled engineering from 3 to 20+ at a Series A SaaS startup. Owned hiring, engineering standards, on-call
+culture, and code review. Hands-on in system design through rapid iteration.
+</div>
+</div>
+</div>
+<div class="exp-card">
+<div>
+<div class="exp-date">2020 &ndash; 2021</div>
+</div>
+<div>
+<div class="exp-role">Software Engineering Manager</div>
+<div class="exp-company">PwC</div>
+<div class="exp-desc">
+Led development within a ~60-person engineering organization delivering a cloud-based enterprise platform.
+Guided architecture across services and worked directly with business stakeholders to match systems to real
+operational needs, in a complex regulated environment.
+</div>
+</div>
+</div>
+<div class="exp-card">
+<div>
+<div class="exp-date">2018 &ndash; 2019</div>
 </div>
 <div>
 <div class="exp-role">Software Engineering Manager</div>
 <div class="exp-company">LoanLogics</div>
 <div class="exp-desc">
-Led v1.0 of an enterprise underwriting platform in a regulated fintech environment.
-Managed team delivery, microservices architecture, and AWS infrastructure.
+Built and led a team of 15 to deliver v1.0 of a cloud-based underwriting platform in regulated fintech.
+Microservices architecture on AWS with CI/CD.
 </div>
 </div>
 </div>
 <div class="exp-card">
 <div>
-<div class="exp-date">2016 &mdash; 2018</div>
+<div class="exp-date">2016 &ndash; 2018</div>
 </div>
 <div>
 <div class="exp-role">Tech Lead Software Engineer</div>
 <div class="exp-company">iProcedures</div>
 <div class="exp-desc">
-Built real-time clinical monitoring and visualization systems (AIMS) within healthcare,
-operating under strict regulatory and reliability requirements.
+Led development of a real-time clinical platform for anesthesia and surgical monitoring, shipped on iPad
+in a HIPAA-regulated environment.
 </div>
 </div>
 </div>
@@ -686,9 +829,9 @@ draw();
 /* ---- Typing Animation ---- */
 (function() {
 const phrases = [
-'AI & Technology Executive',
+'AI Product Engineer & Technical Leader',
 'Agentic Systems Architect',
-'Product & Engineering Leader',
+'Hands-On Across Architecture & Delivery',
 'Building Production-Grade AI'
 ];
 const el = document.getElementById('tagline');
